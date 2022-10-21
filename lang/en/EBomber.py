@@ -262,6 +262,7 @@ if call == str(2):
             time.sleep(1)
         except:
             print('[-] Error in sent!')
+            
         if time.time() > start_time + float(CLOSE_AFTER):
             print(Fore.RED)
             print("The attack is over! Press ENTER to close...")
